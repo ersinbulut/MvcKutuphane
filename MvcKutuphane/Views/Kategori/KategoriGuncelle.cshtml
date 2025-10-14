@@ -1,0 +1,19 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKATEGORİ
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
+{
+    <div>
+        <label>Kategori Adı</label>
+        <input type="text" name="AD" value="@Model.AD" class="form-control" />
+        <input type="hidden" name="ID" value="@Model.ID" />
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="Btn1">Kategori Güncelle</button>
+    </div>
+}
+
+

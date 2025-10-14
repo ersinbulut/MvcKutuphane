@@ -34,5 +34,28 @@ namespace MvcKutuphane.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult KategoriSil(int id)
+        {
+            var kategori = db.TBLKATEGORİ.Find(id);
+            db.TBLKATEGORİ.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult KategoriGuncelle(int id)
+        {
+            var ktg = db.TBLKATEGORİ.Find(id);
+            return View("KategoriGuncelle", ktg);
+        }
+        [HttpPost]
+        public ActionResult KategoriGuncelle(TBLKATEGORİ p)
+        {
+            var ktg = db.TBLKATEGORİ.Find(p.ID);
+            ktg.AD = p.AD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
