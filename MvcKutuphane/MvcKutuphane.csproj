@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\KitapController.cs" />
+    <Compile Include="Controllers\OduncController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Controllers\YazarController.cs" />
@@ -270,6 +271,7 @@
     <Content Include="Views\Uye\Index.cshtml" />
     <Content Include="Views\Uye\UyeEkle.cshtml" />
     <Content Include="Views\Uye\UyeGuncelle.cshtml" />
+    <Content Include="Views\Odunc\OduncVer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
