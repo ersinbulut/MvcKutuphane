@@ -13,7 +13,8 @@ namespace MvcKutuphane.Controllers
         // GET: Odunc
         public ActionResult Index()
         {
-            return View();
+            var values = db.TBLHAREKET.ToList();
+            return View(values);
         }
         [HttpGet]
         public ActionResult OduncVer()

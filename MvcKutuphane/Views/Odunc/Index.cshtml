@@ -1,0 +1,42 @@
+﻿@model List<MvcKutuphane.Models.Entity.TBLHAREKET>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+
+@using (Html.BeginForm("Index", "Odunc", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <input type="text" name="p" class="form-control" placeholder="Aranacak kitabı giriniz..." />
+    </div>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>İŞLEM ID</th>
+        <th>KİTAP ADI</th>
+        <th>ÜYE</th>
+        <th>PERSONEL</th>
+        <th>ALIŞ TARİHİ</th>
+        <th>İADE TARİHİ</th>
+        <th>İADE AL</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.TBLKİTAP.AD</td>
+            <td>@item.TBLUYELER.AD &nbsp @item.TBLUYELER.SOYAD</td>
+            <td>@item.PERSONEL</td>
+            <td>@Convert.ToDateTime(item.ALISTARİH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(item.IADETARIH).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Odunc/Odunciade/" class="btn btn-default" style="background-color:#64d8ca ; color:white">Kitabı İade Et</a></td>
+        </tr>
+    }
+</table>
+
+
