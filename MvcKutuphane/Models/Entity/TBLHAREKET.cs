@@ -29,5 +29,6 @@ namespace MvcKutuphane.Models.Entity
         public virtual ICollection<TBLCEZALAR> TBLCEZALAR { get; set; }
         public virtual TBLKİTAP TBLKİTAP { get; set; }
         public virtual TBLUYELER TBLUYELER { get; set; }
+        public virtual TBLPERSONEL TBLPERSONEL { get; set; }
     }
 }

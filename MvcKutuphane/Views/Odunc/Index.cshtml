@@ -31,10 +31,10 @@
             <td>@item.ID</td>
             <td>@item.TBLKİTAP.AD</td>
             <td>@item.TBLUYELER.AD &nbsp @item.TBLUYELER.SOYAD</td>
-            <td>@item.PERSONEL</td>
+            <td>@item.TBLPERSONEL.PERSONEL</td>
             <td>@Convert.ToDateTime(item.ALISTARİH).ToString("dd/MM/yyyy")</td>
             <td>@Convert.ToDateTime(item.IADETARIH).ToString("dd/MM/yyyy")</td>
-            <td><a href="/Odunc/Odunciade/" class="btn btn-default" style="background-color:#64d8ca ; color:white">Kitabı İade Et</a></td>
+            <td><a href="/Odunc/Odunciade/@item.ID" class="btn btn-default" style="background-color:#64d8ca ; color:white">Kitabı İade Et</a></td>
         </tr>
     }
 </table>

@@ -99,6 +99,7 @@ namespace MvcKutuphane.Controllers
             var yzr = db.TBLYAZAR.FirstOrDefault(m => m.ID == p.YAZAR);
             kitap.KATEGORİ = ktg.ID;
             kitap.YAZAR = yzr.ID;
+            kitap.DURUM = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

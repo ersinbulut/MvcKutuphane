@@ -33,5 +33,12 @@ namespace MvcKutuphane.Controllers
         {
             return View();
         }
+
+        public ActionResult Odunciade(int id)
+        {
+            var odn = db.TBLHAREKET.Find(id);
+            return View("Odunciade", odn);
+        }
+
     }
 }

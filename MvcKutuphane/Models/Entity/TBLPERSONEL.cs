@@ -14,7 +14,14 @@ namespace MvcKutuphane.Models.Entity
     
     public partial class TBLPERSONEL
     {
+        public TBLPERSONEL()
+        {
+            this.TBLHAREKET = new HashSet<TBLHAREKET>();
+        }
+    
         public int ID { get; set; }
         public string PERSONEL { get; set; }
+    
+        public virtual ICollection<TBLHAREKET> TBLHAREKET { get; set; }
     }
 }
