@@ -29,7 +29,7 @@
         @Html.TextBoxFor(model => model.IADETARIH, "{0:dd.MM.yyyy}", new { @class = "form-control" })
         <br />
         <label>Üyenin Getirdiği Tarihi</label>
-        <input type="text" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
     </div>
     <div style="margin-top:15px;">
         <button class="btn btn-group" style="background-color:#64d8ca; color:white;" id="Btn1">Ödünç Kitabı Geri Al</button>

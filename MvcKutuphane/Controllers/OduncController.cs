@@ -13,7 +13,7 @@ namespace MvcKutuphane.Controllers
         // GET: Odunc
         public ActionResult Index()
         {
-            var values = db.TBLHAREKET.ToList();
+            var values = db.TBLHAREKET.Where(x=>x.ISLEMDURUM == false).ToList();
             return View(values);
         }
         [HttpGet]
@@ -38,6 +38,15 @@ namespace MvcKutuphane.Controllers
         {
             var odn = db.TBLHAREKET.Find(id);
             return View("Odunciade", odn);
+        }
+        [HttpPost]
+        public ActionResult OduncGuncelle(TBLHAREKET p)
+        {
+            var odn = db.TBLHAREKET.Find(p.ID);
+            odn.UYEGETIRTARIH = p.UYEGETIRTARIH;
+            odn.ISLEMDURUM = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

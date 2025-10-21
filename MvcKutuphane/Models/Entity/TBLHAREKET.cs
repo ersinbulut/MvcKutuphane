@@ -25,6 +25,8 @@ namespace MvcKutuphane.Models.Entity
         public Nullable<int> PERSONEL { get; set; }
         public Nullable<System.DateTime> ALISTARİH { get; set; }
         public Nullable<System.DateTime> IADETARIH { get; set; }
+        public Nullable<bool> ISLEMDURUM { get; set; }
+        public Nullable<System.DateTime> UYEGETIRTARIH { get; set; }
     
         public virtual ICollection<TBLCEZALAR> TBLCEZALAR { get; set; }
         public virtual TBLKİTAP TBLKİTAP { get; set; }
