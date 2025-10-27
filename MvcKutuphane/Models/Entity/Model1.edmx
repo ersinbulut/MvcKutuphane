@@ -66,6 +66,7 @@
           <Property Name="YAYINEVİ" Type="varchar" MaxLength="50" />
           <Property Name="SAYFA" Type="varchar" MaxLength="4" />
           <Property Name="DURUM" Type="bit" />
+          <Property Name="KITAPRESIM" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TBLPERSONEL">
           <Key>
@@ -295,6 +296,7 @@
           <NavigationProperty Name="TBLHAREKET" Relationship="Self.FK_TBLHAREKET_TBLKİTAP" FromRole="TBLKİTAP" ToRole="TBLHAREKET" />
           <NavigationProperty Name="TBLKATEGORİ" Relationship="Self.FK_TBLKİTAP_TBLKATEGORİ" FromRole="TBLKİTAP" ToRole="TBLKATEGORİ" />
           <NavigationProperty Name="TBLYAZAR" Relationship="Self.FK_TBLKİTAP_TBLYAZAR" FromRole="TBLKİTAP" ToRole="TBLYAZAR" />
+          <Property Name="KITAPRESIM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TBLPERSONEL">
           <Key>
@@ -516,6 +518,7 @@
           <EntitySetMapping Name="TBLKİTAP">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLKİTAP">
               <MappingFragment StoreEntitySet="TBLKİTAP">
+                <ScalarProperty Name="KITAPRESIM" ColumnName="KITAPRESIM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="KATEGORİ" ColumnName="KATEGORİ" />

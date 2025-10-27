@@ -27,6 +27,7 @@ namespace MvcKutuphane.Models.Entity
         public string YAYINEVİ { get; set; }
         public string SAYFA { get; set; }
         public Nullable<bool> DURUM { get; set; }
+        public string KITAPRESIM { get; set; }
     
         public virtual ICollection<TBLHAREKET> TBLHAREKET { get; set; }
         public virtual TBLKATEGORİ TBLKATEGORİ { get; set; }
