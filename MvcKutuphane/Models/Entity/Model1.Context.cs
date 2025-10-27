@@ -34,5 +34,7 @@ namespace MvcKutuphane.Models.Entity
         public DbSet<TBLPERSONEL> TBLPERSONEL { get; set; }
         public DbSet<TBLUYELER> TBLUYELER { get; set; }
         public DbSet<TBLYAZAR> TBLYAZAR { get; set; }
+        public DbSet<TBLHAKKIMIZDA> TBLHAKKIMIZDA { get; set; }
+        public DbSet<TBLILETISIM> TBLILETISIM { get; set; }
     }
 }
