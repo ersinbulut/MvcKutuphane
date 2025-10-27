@@ -7,52 +7,98 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Üye Listesi</h2>
+<h2 class="text-center my-4">Üye Listesi</h2>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Üye ID</th>
-            <th>Ad</th>
-            <th>Soyad</th>
-            <th>Mail</th>
-            <th>Kullanıcı Adı</th>
-            <th>Şifre</th>
-            <th>Telefon</th>
-            <th>Okul</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container">
+    <table class="table table-bordered table-striped table-hover align-middle">
+        <thead class="table-dark text-center">
             <tr>
-                <td>@item.ID</td>
-                <td>@item.AD</td>
-                <td>@item.SOYAD</td>
-                <td>@item.MAIL</td>
-                <td>@item.KULLANICIADI</td>
-                <td>@item.SIFRE</td>
-                <td>@item.TELEFON</td>
-                <td>@item.OKUL</td>
-                <td>
-                    <a href="@Url.Action("UyeSil", "Uye", new { id = item.ID })" class="btn btn-danger btn-sm">
-                        Sil
-                    </a>
-                </td>
-                <td>
-                    <a href="@Url.Action("UyeGuncelle", "Uye", new { id = item.ID })" class="btn btn-success btn-sm">
-                        Güncelle
-                    </a>
-                </td>
+                <th>Üye ID</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Mail</th>
+                <th>Kullanıcı Adı</th>
+                <th>Şifre</th>
+                <th>Telefon</th>
+                <th>Okul</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center">
+                    <td>@item.ID</td>
+                    <td>@item.AD</td>
+                    <td>@item.SOYAD</td>
+                    <td>@item.MAIL</td>
+                    <td>@item.KULLANICIADI</td>
+                    <td>@item.SIFRE</td>
+                    <td>@item.TELEFON</td>
+                    <td>@item.OKUL</td>
+                    <td>
+                        <a href="@Url.Action("UyeSil", "Uye", new { id = item.ID })" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i> Sil
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("UyeGuncelle", "Uye", new { id = item.ID })" class="btn btn-success btn-sm">
+                            <i class="fa fa-edit"></i> Güncelle
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<div class="text-center">
-    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
+    <!-- Sayfalama -->
+    <div class="d-flex justify-content-center mt-4">
+        @Html.PagedListPager(
+            Model,
+            page => Url.Action("Index", new { sayfa = page }),
+            new PagedListRenderOptions
+            {
+                DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+                DisplayLinkToLastPage = PagedListDisplayMode.Always,
+                DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+                DisplayLinkToNextPage = PagedListDisplayMode.Always,
+                UlElementClasses = new[] { "pagination", "justify-content-center" },
+                LiElementClasses = new[] { "page-item" },
+               // PageClasses = new[] { "page-link" }
+            }
+        )
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("UyeEkle", "Uye")" class="btn btn-primary btn-lg">
+            <i class="fa fa-plus"></i> Yeni Üye Ekle
+        </a>
+    </div>
 </div>
 
-<a href="@Url.Action("UyeEkle", "Uye")" class="btn btn-primary">Yeni Üye Ekle</a>
+<!-- Font Awesome CDN (ikonlar için) -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Stil düzeltmeleri -->
+<style>
+    .pagination {
+        margin-top: 20px;
+    }
+
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+
+        .pagination .page-link {
+            color: #0d6efd;
+            border: 1px solid #dee2e6;
+        }
+
+            .pagination .page-link:hover {
+                background-color: #e9ecef;
+            }
+</style>

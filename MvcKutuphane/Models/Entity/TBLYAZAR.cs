@@ -11,7 +11,8 @@ namespace MvcKutuphane.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBLYAZAR
     {
         public TBLYAZAR()
@@ -20,7 +21,9 @@ namespace MvcKutuphane.Models.Entity
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage ="Yazar Adını Boş Geçemezsiniz")]
         public string AD { get; set; }
+        [StringLength(20,ErrorMessage ="Soyad 20 Karakterden Uzun Olamaz")]
         public string SOYAD { get; set; }
         public string DETAY { get; set; }
     

@@ -10,10 +10,12 @@
     <div>
         <label>Yazar Adı</label>
         @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.AD)
     </div>
     <div>
         <label>Yazar Soyadı</label>
         @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.SOYAD)
     </div>
     <div>
         <label>Yazar Detay</label>
