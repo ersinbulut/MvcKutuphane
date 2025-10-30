@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "LinqKart";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="inner_content_w3_agile_info">
+    <div class="agile_top_w3_grids">
+        <ul class="ca-menu">
+
+            <!-- 1. Satır -->
+            <li style="background: linear-gradient(135deg, #ff7e5f, #feb47b);">
+                <a href="#">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main">@ViewBag.dgr1</h4>
+                        <h3 class="ca-sub">Kitap Sayımız</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #43cea2, #185a9d);">
+                <a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main one">@ViewBag.dgr2</h4>
+                        <h3 class="ca-sub one">Üye Sayımız</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #ff9966, #ff5e62);">
+                <a href="#">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main two">@ViewBag.dgr3 ₺</h4>
+                        <h3 class="ca-sub two">Kasadaki Tutar</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #56ab2f, #a8e063);">
+                <a href="#">
+                    <i class="fa fa-apple" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main three">@ViewBag.dgr4</h4>
+                        <h3 class="ca-sub three">Ödünçteki Kitaplar</h3>
+                    </div>
+                </a>
+            </li>
+
+            <!-- 2. Satır -->
+            <li style="background: linear-gradient(135deg, #36d1dc, #5b86e5);">
+                <a href="#">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr5</h4>
+                        <h3 class="ca-sub four">Kategori Sayımız</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #ffafbd, #ffc3a0);">
+                <a href="#">
+                    <i class="fa fa-language" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr6</h4>
+                        <h3 class="ca-sub four">En Aktif Üye</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #c94b4b, #4b134f);">
+                <a href="#">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr7</h4>
+                        <h3 class="ca-sub four">En Çok Okunan Kitap</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+                <a href="#">
+                    <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr8</h4>
+                        <h3 class="ca-sub four">En Fazla Kitabı Olan Yazar</h3>
+                    </div>
+                </a>
+            </li>
+
+            <!-- 3. Satır -->
+            <li style="background: linear-gradient(135deg, #ff512f, #dd2476);">
+                <a href="#">
+                    <i class="fa fa-barcode" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr9</h4>
+                        <h3 class="ca-sub four">En İyi Yayınevi</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #1f4037, #99f2c8);">
+                <a href="#">
+                    <i class="fa fa-bitcoin" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr10</h4>
+                        <h3 class="ca-sub four">En Başarılı Personel</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #373b44, #4286f4);">
+                <a href="#">
+                    <i class="fa fa-mail-bulk" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr11</h4>
+                        <h3 class="ca-sub four">Toplam Mesaj Sayısı</h3>
+                    </div>
+                </a>
+            </li>
+            <li style="background: linear-gradient(135deg, #fc4a1a, #f7b733);">
+                <a href="#">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">@ViewBag.dgr12</h4>
+                        <h3 class="ca-sub four">Bugünkü Emanetler</h3>
+                    </div>
+                </a>
+            </li>
+
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+</div>
+
+
+<style>
+    /* 4’lü grid düzeni */
+    .ca-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* her satırda 4 kart */
+        gap: 25px; /* kartlar arası boşluk */
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+        /* Kart görünümü */
+        .ca-menu li {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            border-radius: 15px;
+            text-align: center;
+            padding: 25px 15px;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+            .ca-menu li i {
+                font-size: 40px;
+                margin-bottom: 12px;
+                color: #fff;
+            }
+
+            .ca-menu li h4 {
+                font-size: 22px;
+                margin: 10px 0 5px;
+                font-weight: bold;
+            }
+
+            .ca-menu li h3 {
+                font-size: 15px;
+                font-weight: normal;
+                color: rgba(255,255,255,0.9);
+            }
+
+            /* Hover efekti */
+            .ca-menu li:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            }
+
+    /* Responsive (küçük ekranlarda 2 veya 1 kart) */
+    @@media (max-width: 992px) {
+        .ca-menu {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .ca-menu {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .copyrights {
+        text-align: center;
+        margin-top: 50px;
+        color: #666;
+        font-size: 14px;
+    }
+</style>
