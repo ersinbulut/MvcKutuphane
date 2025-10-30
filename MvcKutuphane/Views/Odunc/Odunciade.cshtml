@@ -30,6 +30,9 @@
         <br />
         <label>Üyenin Getirdiği Tarihi</label>
         <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <label>Geç gelen gün sayısı</label>
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr" />
     </div>
     <div style="margin-top:15px;">
         <button class="btn btn-group" style="background-color:#64d8ca; color:white;" id="Btn1">Ödünç Kitabı Geri Al</button>
