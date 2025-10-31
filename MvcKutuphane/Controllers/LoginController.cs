@@ -24,6 +24,13 @@ namespace MvcKutuphane.Controllers
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.MAIL,false);
+                Session["Mail"] = bilgiler.MAIL.ToString();
+                //TempData["id"] = bilgiler.ID.ToString();
+                //TempData["Ad"] = bilgiler.AD.ToString();
+                //TempData["Soyad"] = bilgiler.SOYAD.ToString();
+                //TempData["KullanıcıAdı"] = bilgiler.KULLANICIADI.ToString();
+                //TempData["Sifre"] = bilgiler.SIFRE.ToString();
+                //TempData["Okul"] = bilgiler.OKUL.ToString();
                 return RedirectToAction("Index", "Panelim");
             }
             else
