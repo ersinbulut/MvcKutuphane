@@ -34,5 +34,30 @@ namespace MvcKutuphane.Controllers
             return RedirectToAction("GirisYap", "Login");
         }
 
+        public ActionResult Kitaplarim()
+        {
+            // Kullanıcı oturumu kontrolü
+            if (Session["Mail"] == null)
+            {
+                return RedirectToAction("Login", "Giris"); // Giriş sayfasına yönlendir
+            }
+
+            string kullanici = Session["Mail"].ToString();
+
+            // Üye ID'sini bul
+            var id = db.TBLUYELER
+                       .Where(x => x.MAIL == kullanici)
+                       .Select(z => z.ID)
+                       .FirstOrDefault();
+
+            // Üyenin aldığı kitapları getir
+            var degerler = db.TBLHAREKET
+                             .Where(x => x.UYE == id)
+                             .ToList();
+
+            return View(degerler);
+        }
+
+
     }
 }

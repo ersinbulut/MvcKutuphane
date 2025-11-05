@@ -2,16 +2,17 @@
 @model List<TBLMESAJLAR>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Giden";
     Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
 }
 
-<h2>Gelen Mesajlar Sayfası</h2>
+<h2>Giden Mesajlar Sayfası</h2>
+
 <br />
 
 <table class="table table-bordered">
     <tr>
-        <th>Gönderen</th>
+        <th>Alıcı</th>
         <th>Konu</th>
         <th>Mesaj</th>
         <th>Tarih</th>
@@ -19,7 +20,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.GONDEREN</td>
+            <td>@item.ALICI</td>
             <td>@item.KONU</td>
             <td>@item.ICERIK</td>
             <td>@item.TARIH</td>
