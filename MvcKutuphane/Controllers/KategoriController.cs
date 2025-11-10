@@ -13,7 +13,7 @@ namespace MvcKutuphane.Controllers
        DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();
         public ActionResult Index()
         {
-            var degerler = db.TBLKATEGORİ.ToList();
+            var degerler = db.TBLKATEGORİ.Where(x=>x.DURUM ==true).ToList();
             return View(degerler);
         }
 
@@ -30,6 +30,7 @@ namespace MvcKutuphane.Controllers
             {
                 return View("KategoriEkle");
             }
+            p.DURUM = true;
             db.TBLKATEGORİ.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -38,7 +39,8 @@ namespace MvcKutuphane.Controllers
         public ActionResult KategoriSil(int id)
         {
             var kategori = db.TBLKATEGORİ.Find(id);
-            db.TBLKATEGORİ.Remove(kategori);
+            kategori.DURUM = false;
+            //db.TBLKATEGORİ.Remove(kategori);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -52,6 +54,7 @@ namespace MvcKutuphane.Controllers
         public ActionResult KategoriGuncelle(TBLKATEGORİ p)
         {
             var ktg = db.TBLKATEGORİ.Find(p.ID);
+            ktg.DURUM = true;
             ktg.AD = p.AD;
             db.SaveChanges();
             return RedirectToAction("Index");

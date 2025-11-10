@@ -19,15 +19,51 @@ namespace MvcKutuphane.Controllers
         [HttpGet]
         public ActionResult OduncVer()
         {
+            List<SelectListItem> deger1 = (from x in db.TBLUYELER.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.AD + " " + x.SOYAD,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+
+            List<SelectListItem> deger2 = (from x in db.TBLKİTAP.Where(y => y.DURUM == true).ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.AD,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+
+            List<SelectListItem> deger3 = (from x in db.TBLPERSONEL.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.PERSONEL,
+                                               Value = x.ID.ToString()
+                                           }).ToList();
+
+            ViewBag.Uyeler = deger1;
+            ViewBag.Kitaplar = deger2;
+            ViewBag.Personel = deger3;
+
             return View();
         }
+
         [HttpPost]
         public ActionResult OduncVer(TBLHAREKET p)
         {
+            var d1 = db.TBLUYELER.FirstOrDefault(x => x.ID == p.UYE);
+            var d2 = db.TBLKİTAP.FirstOrDefault(x => x.ID == p.KITAP);
+            var d3 = db.TBLPERSONEL.FirstOrDefault(x => x.ID == p.PERSONEL);
+
+            p.TBLUYELER = d1;
+            p.TBLKİTAP = d2;
+            p.TBLPERSONEL = d3;
+
             db.TBLHAREKET.Add(p);
             db.SaveChanges();
-            return View();
+
+            return RedirectToAction("Index");
         }
+
 
         public ActionResult OduncAl()
         {

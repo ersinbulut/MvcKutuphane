@@ -21,6 +21,7 @@ namespace MvcKutuphane.Models.Entity
     
         public int ID { get; set; }
         public string AD { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     
         public virtual ICollection<TBLKİTAP> TBLKİTAP { get; set; }
     }

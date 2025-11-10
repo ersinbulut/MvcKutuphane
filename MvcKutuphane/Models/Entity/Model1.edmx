@@ -70,6 +70,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBLKİTAP">
           <Key>
@@ -312,6 +313,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLKİTAP" Relationship="Self.FK_TBLKİTAP_TBLKATEGORİ" FromRole="TBLKATEGORİ" ToRole="TBLKİTAP" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLKİTAP">
           <Key>
@@ -574,6 +576,7 @@
           <EntitySetMapping Name="TBLKATEGORİ">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLKATEGORİ">
               <MappingFragment StoreEntitySet="TBLKATEGORİ">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
               </MappingFragment>

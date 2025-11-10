@@ -4,33 +4,34 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>OduncVer</h2>
-
+<h2>Ödünç Ver</h2>
 
 <form class="form-group" method="post">
     <div class="mb-3">
-        <label>Üye ID</label>
-        @Html.TextBoxFor(x => x.UYE, new { @class = "form-control", placeholder = "Üye Id giriniz" })
+        <label>Üye Seçimi</label>
+        @Html.DropDownListFor(x => x.UYE, (List<SelectListItem>)ViewBag.Uyeler, "Üye Seçiniz", new { @class = "form-control" })
     </div>
 
     <div class="mb-3">
-        <label>Kitap ID</label>
-        @Html.TextBoxFor(x => x.KITAP, new { @class = "form-control", placeholder = "Kitap ID giriniz" })
+        <label>Kitap Seçimi</label>
+        @Html.DropDownListFor(x => x.KITAP, (List<SelectListItem>)ViewBag.Kitaplar, "Kitap Seçiniz", new { @class = "form-control" })
     </div>
+
     <div class="mb-3">
-        <label>Personel ID</label>
-        @Html.TextBoxFor(x => x.PERSONEL, new { @class = "form-control", placeholder = "Pesenel ID" })
+        <label>Personel Seçimi</label>
+        @Html.DropDownListFor(x => x.PERSONEL, (List<SelectListItem>)ViewBag.Personel, "Personel Seçiniz", new { @class = "form-control" })
     </div>
 
     <div class="mb-3">
         <label>Kitap Alış Tarihi</label>
-     <input type="text" class="form-control" name="ALISTARİH" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
     </div>
 
     <div class="mb-3">
-        <label>Kitap Veriş Tarihi</label>
+        <label>Kitap İade Tarihi</label>
         <input type="text" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
     </div>
+
     <input type="hidden" value="False" name="ISLEMDURUM" />
 
     <div class="text-right" style="margin-top:15px;">
