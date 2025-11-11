@@ -26,6 +26,15 @@
           <Property Name="BITIS" Type="smalldatetime" />
           <Property Name="PARA" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="TBLDUYURULAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORİ" Type="varchar" MaxLength="50" />
+          <Property Name="ICERİK" Type="varchar" MaxLength="200" />
+          <Property Name="TARİH" Type="datetime" />
+        </EntityType>
         <EntityType Name="TBLHAKKIMIZDA">
           <Key>
             <PropertyRef Name="ID" />
@@ -215,6 +224,7 @@
         <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLCEZALAR" EntityType="Self.TBLCEZALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLDUYURULAR" EntityType="Self.TBLDUYURULAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHAKKIMIZDA" EntityType="Self.TBLHAKKIMIZDA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLHAREKET" EntityType="Self.TBLHAREKET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLILETISIM" EntityType="Self.TBLILETISIM" Schema="dbo" store:Type="Tables" />
@@ -480,6 +490,7 @@
           <EntitySet Name="TBLILETISIM" EntityType="DBKUTUPHANEModel.TBLILETISIM" />
           <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
           <EntitySet Name="TBLMESAJLAR" EntityType="DBKUTUPHANEModel.TBLMESAJLAR" />
+          <EntitySet Name="TBLDUYURULAR" EntityType="DBKUTUPHANEModel.TBLDUYURULAR" />
         </EntityContainer>
         <Association Name="FK_TBLHAREKET_TBLPERSONEL">
           <End Type="DBKUTUPHANEModel.TBLPERSONEL" Role="TBLPERSONEL" Multiplicity="0..1" />
@@ -520,6 +531,15 @@
           <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ICERIK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="TARIH" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TBLDUYURULAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORİ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICERİK" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -658,6 +678,16 @@
                 <ScalarProperty Name="KONU" ColumnName="KONU" />
                 <ScalarProperty Name="ALICI" ColumnName="ALICI" />
                 <ScalarProperty Name="GONDEREN" ColumnName="GONDEREN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLDUYURULAR">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBLDUYURULAR">
+              <MappingFragment StoreEntitySet="TBLDUYURULAR">
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+                <ScalarProperty Name="ICERİK" ColumnName="ICERİK" />
+                <ScalarProperty Name="KATEGORİ" ColumnName="KATEGORİ" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

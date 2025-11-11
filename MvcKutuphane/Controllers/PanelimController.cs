@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MvcKutuphane.Models.Entity;
 
 namespace MvcKutuphane.Controllers
@@ -59,5 +60,16 @@ namespace MvcKutuphane.Controllers
         }
 
 
+        public ActionResult Duyurular()
+        {
+           var duyurulistesi = db.TBLDUYURULAR.ToList();
+            return View(duyurulistesi);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("GirisYap", "Login");
+        }
     }
 }

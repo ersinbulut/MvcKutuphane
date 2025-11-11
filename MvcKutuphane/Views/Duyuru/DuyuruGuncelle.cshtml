@@ -1,0 +1,27 @@
+﻿@model MvcKutuphane.Models.Entity.TBLDUYURULAR
+@{
+    ViewBag.Title = "DuyuruGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>DuyuruGuncelle</h2>
+
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.ID)
+    <div style="margin-top:15px;">
+        <label>Duyuru başlığı</label>
+        @Html.TextBoxFor(x => x.KATEGORİ, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <label>Duyuru içeriği</label>
+        @Html.TextBoxFor(x => x.ICERİK, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <label>Duyuru tarih</label>
+        @Html.TextBoxFor(x => x.TARİH, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="Btn1">Duyuru Güncelle</button>
+    </div>
+</form>
+

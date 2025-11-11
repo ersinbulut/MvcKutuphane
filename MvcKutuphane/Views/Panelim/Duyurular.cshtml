@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MvcKutuphane.Models.Entity.TBLDUYURULAR>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyurular</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>KATEGORİ</th>
+        <th>TARİH</th>
+        <th>İÇERİK</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.KATEGORİ</td>
+            <td>@Convert.ToDateTime(item.TARİH).ToString("dd/MM/yyyy")</td>
+            <td>@item.ICERİK</td>
+        </tr>
+    }
+</table>
+<a href="/Duyuru/DuyuruEkle/" class="btn btn-primary">Yeni Duyuru Ekle</a>
