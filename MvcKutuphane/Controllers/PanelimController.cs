@@ -8,11 +8,11 @@ using MvcKutuphane.Models.Entity;
 
 namespace MvcKutuphane.Controllers
 {
+    [Authorize]
     public class PanelimController : Controller
     {
         DBKUTUPHANEEntities1 db=new DBKUTUPHANEEntities1();
         // GET: Panelim
-        [Authorize]
         [HttpGet]
         public ActionResult Index()
         {
