@@ -57,6 +57,11 @@ namespace MvcKutuphane.Controllers
             return RedirectToAction("Giden","Mesajlar");
         }
 
+        public PartialViewResult Partial1()
+        {
+            return PartialView();
+        }
+
        
     }
 }
