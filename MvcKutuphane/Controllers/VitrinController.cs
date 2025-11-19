@@ -7,6 +7,7 @@ using MvcKutuphane.Models.Entity;
 using MvcKutuphane.Models.Siniflarim;
 namespace MvcKutuphane.Controllers
 {
+    [AllowAnonymous]
     public class VitrinController : Controller
     {
         DBKUTUPHANEEntities1 db =new DBKUTUPHANEEntities1();

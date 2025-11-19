@@ -7,6 +7,7 @@ using MvcKutuphane.Models.Entity;
 
 namespace MvcKutuphane.Controllers
 {
+    [AllowAnonymous]
     public class KayitOlController : Controller
     {
         DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();

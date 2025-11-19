@@ -1,26 +1,59 @@
-﻿@model List<MvcKutuphane.Models.Entity.TBLHAREKET>
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLHAREKET>
+
 @{
-    ViewBag.Title = "Kitaplarim";
+    ViewBag.Title = "Kitaplarım";
     Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
 }
-<br />
-<h2>Kitap Geçmişim</h2>
-<br />
-<table class="table table-bordered">
-    <tr>
-        <th>KİTAP ADI</th>
-        <th>ALIŞ TARİHİ</th>
-        <th>ÜYE İADE TARİHİ</th>
-    </tr>
 
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.TBLKİTAP.AD</td>
-            <td>@Convert.ToDateTime(item.ALISTARİH).ToString("dd/MM/yyyy")</td>
-            <td>@Convert.ToDateTime(item.UYEGETIRTARIH).ToString("dd/MM/yyyy")</td>
-        </tr>
-    }
-</table>
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Kitaplarım</h4>
+                    </div>
 
+                    <div class="card-body">
+
+                        <div class="timeline timeline-inverse">
+
+                            @foreach (var item in Model)
+                            {
+                                <!-- Tarih Etiketleri -->
+                                <div class="time-label mb-2">
+                                    <span class="bg-success text-white p-2 rounded me-2">
+                                        @(item.ALISTARİH == null
+                                            ? "-"
+                                            : ((DateTime)item.ALISTARİH).ToString("dd-MMM-yyyy"))
+                                    </span>
+
+                                    <span class="bg-warning text-dark p-2 rounded">
+                                        @(item.UYEGETIRTARIH == null
+                                            ? "Teslim edilmedi"
+                                            : ((DateTime)item.UYEGETIRTARIH).ToString("dd-MMM-yyyy"))
+                                    </span>
+                                </div>
+
+                                <!-- Kitap Kartı -->
+                                <div class="timeline-item mb-3 p-2 border rounded bg-light">
+                                    <strong>Kitap Adı: </strong>
+                                    @(item.TBLKİTAP == null ? "Kitap bulunamadı" : item.TBLKİTAP.AD)
+                                </div>
+                            }
+
+                        </div>
+
+                        <a href="/Kitap/KitapEkle/" class="btn btn-info mt-3">
+                            <i class="fa-solid fa-plus"></i> Yeni Kitap Girişi
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

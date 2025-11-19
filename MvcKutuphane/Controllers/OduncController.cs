@@ -11,6 +11,7 @@ namespace MvcKutuphane.Controllers
     {
         DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();
         // GET: Odunc
+        [Authorize(Roles = "A")]
         public ActionResult Index()
         {
             var values = db.TBLHAREKET.Where(x=>x.ISLEMDURUM == false).ToList();

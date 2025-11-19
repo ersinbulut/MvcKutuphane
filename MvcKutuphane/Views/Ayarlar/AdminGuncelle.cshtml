@@ -1,0 +1,28 @@
+﻿@model MvcKutuphane.Models.Entity.TBLADMIN
+@{
+    ViewBag.Title = "AdminGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>AdminGuncelle</h2>
+@using (Html.BeginForm("AdminGuncelle", "Ayarlar", FormMethod.Post))
+{
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <div>
+        <label>Kullanıcı Adı</label>
+        <input type="text" name="Kullanici" value="@Model.Kullanici" class="form-control" />
+    </div>
+    <div>
+        <label>Şifre</label>
+        <input type="text" name="Sifre" value="@Model.Sifre" class="form-control" />
+    </div>
+    <div>
+        <label>Yetki</label>
+        <input type="text" name="Yetki" value="@Model.Yetki" class="form-control" />
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info" id="Btn1">Admin Güncelle</button>
+    </div>
+}
+
+
